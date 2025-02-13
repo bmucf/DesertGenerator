@@ -19,8 +19,6 @@ public class DesertScene : MonoBehaviour
     private int objGenerated;
 
     [Header("Color of forest")]
-    [SerializeField] float minColorRange;
-    [SerializeField] float maxColorRange;
     [SerializeField] Color[] colorsOfForest;
 
     // Start is called before the first frame update
@@ -40,6 +38,7 @@ public class DesertScene : MonoBehaviour
 
     void CreateForestParent()
     {
+        //Create parent object for forest
         forestParent = new GameObject();
         forestParent.name = "Forest";
     }
