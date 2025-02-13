@@ -16,7 +16,10 @@ public class DesertScene : MonoBehaviour
 
     [Header("Generation of forest")]
     [SerializeField] private int numObjInForest;
+    [SerializeField] private float minScaleTrees;
+    [SerializeField] private float maxScaleTrees;
     private int objGenerated;
+
 
     [Header("Color of forest")]
     [SerializeField] Color[] colorsOfForest;
@@ -50,21 +53,37 @@ public class DesertScene : MonoBehaviour
 
         //Check for change in values by user, if not inputed, set default
         #region CheckForInput
+        //number of trees
         if (numObjInForest == 0)
         {
             numObjInForest = 10;
         }
 
+        //size x of forest
         if (xOffsetCenter == 0)
         {
             xOffsetCenter = 5;
         }
 
+        //size z of forest
         if (zOffsetCenter == 0)
         {
             zOffsetCenter = 5;
         }
 
+        //min size of trees
+        if (minScaleTrees == 0)
+        {
+            minScaleTrees = 0.5f;
+        }
+
+        //max size of trees
+        if(maxScaleTrees == 0)
+        {
+            maxScaleTrees = 2;
+        }
+
+        //colors of trees
         if (colorsOfForest.Length == 0)
         {
             colorsOfForest = new Color[1];
@@ -97,6 +116,7 @@ public class DesertScene : MonoBehaviour
 
             //Randomize position of object within forest, change parent, and randomize color
             _generated.transform.position = centerOfForest + new Vector3(Random.Range(-xOffsetCenter, xOffsetCenter), yOffset, Random.Range(-zOffsetCenter, zOffsetCenter));
+            _generated.transform.localScale = new Vector3(Random.Range(minScaleTrees, maxScaleTrees), Random.Range(minScaleTrees, maxScaleTrees), Random.Range(minScaleTrees, maxScaleTrees));
             _generated.transform.parent = forestParent.transform;
             _generated.GetComponent<MeshRenderer>().material.color = colorsOfForest[Random.Range(0, colorsOfForest.Length)];
         }
