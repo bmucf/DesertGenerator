@@ -17,7 +17,12 @@ public class DesertScene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        int length = baseDimension;
+        int width = baseDimension;
+        int height = baseDimension;
+
         InitializeVariables();
+        CreateGround();
         CreatePyramid();
     }
 
@@ -29,9 +34,7 @@ public class DesertScene : MonoBehaviour
 
     void InitializeVariables()
     {
-        int length = baseDimension;
-        int width = baseDimension;
-        int height = baseDimension;
+
 
         for (int i = baseDimension; i > 0; i--)
         {
@@ -53,7 +56,10 @@ public class DesertScene : MonoBehaviour
 
         for (int i = 0; i < stonesRequired; i++)
         {
-            for(int x = 0; x < )
+            for(int x = 0; x < length)
+            {
+
+            }
             GameObject stone = GameObject.CreatePrimitive(PrimitiveType.Cube);
             stone.transform.parent = pyramidParent.transform;
             stone.transform.position = new Vector3(i * stoneOffset, 0, 0);
