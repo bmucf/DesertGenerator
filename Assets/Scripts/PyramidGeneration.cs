@@ -1,12 +1,9 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using JetBrains.Annotations;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class DesertScene : MonoBehaviour
+public class PyramidGeneration : MonoBehaviour
 {
     public int baseDimension;
     public float stoneOffset;
@@ -56,10 +53,6 @@ public class DesertScene : MonoBehaviour
 
         for (int i = 0; i < stonesRequired; i++)
         {
-            for(int x = 0; x < length)
-            {
-
-            }
             GameObject stone = GameObject.CreatePrimitive(PrimitiveType.Cube);
             stone.transform.parent = pyramidParent.transform;
             stone.transform.position = new Vector3(i * stoneOffset, 0, 0);
