@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DesertScene : MonoBehaviour
 {
+    //Sadie Raghunand and Brian Mosquera
+
     private GameObject ground;
     private float yOffset = 1;
     private GameObject forestParent;
